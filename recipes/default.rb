@@ -11,6 +11,7 @@ authorized_keys = case
                   when username = node["github-pubkey"]["username"]
                     "/home/#{username}/.ssh/authorized_keys"
                   when home = node["github-pubkey"]["home_path"]
+                    node["github-pubkey"]["username"] ||= home.split('/').last
                     "#{home}/.ssh/authorized_keys"
                   else
                     raise %q(Please specify ["github-pubkey"]["username"] or ["github-pubkey"]["home_path"])
@@ -23,10 +24,12 @@ node["github-pubkey"]["members"].each do |name|
   end
 end
 
-execute "concat authorized_keys" do
-  command <<EOC
-bash -l -c '\
-  cat #{Chef::Config[:file_cache_path]}/authorized_keys.* > #{authorized_keys}
-'
-EOC
+file authorized_keys do
+  content Dir.glob("#{Chef::Config[:file_cache_path]}/authorized_keys.*")
+             .map{|filename| File.read(filename) rescue "" }
+             .join("\n")
+  owner node["github-pubkey"]["username"]
+  group node["github-pubkey"]["username"]
+  mode 0400
+  action :create
 end
