@@ -3,8 +3,12 @@ github-pubkey CHANGELOG
 
 This file is used to list changes made in each version of the github-pubkey cookbook.
 
-0.9.9
------
+0.10.0
+------
+- Uchio KONDO - It works
+
+0.9.9(yanked)
+-------------
 - Uchio KONDO - Initial release of github-pubkey
 
 - - -
