@@ -4,7 +4,7 @@
 #
 # Copyright 2013, Aiming Inc / Uchio KONDO
 #
-# MIT desu
+# MIT License
 #
 
 authorized_keys = case

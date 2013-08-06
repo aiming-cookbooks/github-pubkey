@@ -3,9 +3,9 @@ github-pubkey CHANGELOG
 
 This file is used to list changes made in each version of the github-pubkey cookbook.
 
-0.1.0
+0.9.9
 -----
-- [your_name] - Initial release of github-pubkey
+- Uchio KONDO - Initial release of github-pubkey
 
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.
