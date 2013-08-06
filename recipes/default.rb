@@ -24,12 +24,18 @@ node["github-pubkey"]["members"].each do |name|
   end
 end
 
+ruby_block "concat to authorized_keys" do
+  block do
+    content = Dir.glob("#{Chef::Config[:file_cache_path]}/authorized_keys.*")
+                 .map{|filename| File.read(filename) }
+                 .join("\n")
+    File.write(authorized_keys, content)
+  end
+end
+
 file authorized_keys do
-  content Dir.glob("#{Chef::Config[:file_cache_path]}/authorized_keys.*")
-             .map{|filename| File.read(filename) rescue "" }
-             .join("\n")
   owner node["github-pubkey"]["username"]
   group node["github-pubkey"]["username"]
-  mode 0400
+  mode 0600
   action :create
 end
