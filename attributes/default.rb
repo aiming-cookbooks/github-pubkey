@@ -1,0 +1,1 @@
+default["github-pubkey"]["members"] = []
