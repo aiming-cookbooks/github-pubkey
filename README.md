@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/aiming-cookbooks/github-pubkey.png?branch=master)](https://travis-ci.org/aiming-cookbooks/github-pubkey)
+
 github-pubkey cookbook
 =============
 
