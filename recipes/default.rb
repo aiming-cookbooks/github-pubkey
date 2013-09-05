@@ -16,7 +16,7 @@ end
 
 bash "concat authorized_keys" do
   cwd Chef::Config[:file_cache_path]
-  code %{ cat *.authorized_keys > authorized_keys }
+  code %{ awk 'FNR==1{print ""}1' *.authorized_keys > authorized_keys }
 end
 
 # all .ssh directory existance
