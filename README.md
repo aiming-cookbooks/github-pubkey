@@ -51,3 +51,7 @@ License
 
 MIT License; See `LICENSE`
 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/aiming-cookbooks/github-pubkey/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
