@@ -35,7 +35,7 @@ node["github-pubkey"]["usernames"].each do |username|
 
   bash "copy authorized_keys" do
     cwd Chef::Config[:file_cache_path]
-    code   %{ cp   "#{all_key_file}" "#{authorized_keys}" }
+    code   %{ cat  "#{all_key_file}" >> "#{authorized_keys}" }
     not_if %{ diff "#{all_key_file}" "#{authorized_keys}" }
   end
 
